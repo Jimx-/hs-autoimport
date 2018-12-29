@@ -121,15 +121,15 @@
     (save-excursion
       (goto-char (point-max))
       (if (re-search-backward "^import" nil t)
-          (forward-line 1)
+        (forward-line 1)
         (goto-char (point-min))
         (if (re-search-forward "where$" nil t)
             (forward-line 1)
-          (goto-char (point-min)))
+          (goto-char (point-min))))
 
-        (insert (format "import %s" module))
-        (unless import-module
-          (insert (format " (%s)" identifier)))
-        (insert "\n")))))
+      (insert (format "import %s" module))
+      (unless import-module
+        (insert (format " (%s)" identifier)))
+      (insert "\n"))))
 
 (provide 'hs-autoimport)
